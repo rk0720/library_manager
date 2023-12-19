@@ -19,8 +19,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    	.anyRequest().authenticated(); //それ以外はログインを求めるというメソッド
 	//ログイン
 		http.formLogin()
-			.loginProcessingUrl("/login")
-			.loginPage("/loginForm")
+			.loginProcessingUrl("/login") //ログイン実行パス
+			.loginPage("/loginForm") //ログインページ
 			.usernameParameter("email")
 			.passwordParameter("password")
 			.defaultSuccessUrl("/library", true)
