@@ -8,5 +8,4 @@ import com.example.entity.Library;
 @Repository
 public interface LibraryRepository extends JpaRepository<Library, Integer>{
     // 以降の設問で必要に応じて機能を実装すること
-	
 }

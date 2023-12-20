@@ -19,10 +19,10 @@ public class Log {
     private Integer id;
 
     @Column(name = "LIBRARY_ID")
-    private String libraryId;
+    private Integer libraryId;
 
     @Column(name = "USER_ID")
-    private String userId;
+    private Integer userId;
 
     @Column(name = "RENT_DATE")
     private String rentDate;
@@ -41,19 +41,19 @@ public class Log {
         this.id = id;
     }
 
-    public String getLibraryId() {
+    public Integer getLibraryId() {
         return this.libraryId;
     }
 
-    public void setLibraryId(String libraryId) {
+    public void setLibraryId(Integer libraryId) {
         this.libraryId = libraryId;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
