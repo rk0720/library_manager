@@ -3,6 +3,7 @@ package com.example.service;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.entity.User;
@@ -29,33 +30,33 @@ public class LoginUser implements UserDetails {
 		return this.user.getEmail();
 	}
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+	 @Override
+	 public Collection<? extends GrantedAuthority> getAuthorities() {
+	        // ロールカラムを見て、認証ユーザのロールを設定する
+	 return AuthorityUtils.NO_AUTHORITIES;
+	 }
 
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-}
+	 // アカウントの有効期限の状態を判定する
+	 @Override
+	 public boolean isAccountNonExpired() {
+	     return true;
+	 }
+	
+	 // アカウントのロック状態を判定する
+	 @Override
+	 public boolean isAccountNonLocked() {
+	     return true;
+	 }
+	
+	 // 資格情報の有効期限の状態を判定する
+	 @Override
+	 public boolean isCredentialsNonExpired() {
+	     return true;
+	 }
+	
+	 // 有効なユーザかを判定する
+	 @Override
+	 public boolean isEnabled() {
+	     return true;
+	 }
+ }
