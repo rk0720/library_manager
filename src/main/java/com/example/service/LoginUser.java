@@ -25,6 +25,10 @@ public class LoginUser implements UserDetails {
 		return this.user.getPassword();
 	}
 	
+	public Integer getUserId() {
+		return this.user.getId();
+	}
+	
 	@Override
 	public String getUsername() {
 		return this.user.getEmail();

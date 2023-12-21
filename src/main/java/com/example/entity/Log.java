@@ -73,11 +73,11 @@ public class Log {
     	this.returnDate = returnDate;
     }
     
-    public String setReturnDueDate() {
+    public String getReturnDueDate() {
     	return this.returnDueDate;
     }
     
-    public void getReturnDueDate(String returnDueDate) {
-    	this.returnDueDate = returnDueDate;
+    public void setReturnDueDate(String returnDueDate) {
+        this.returnDueDate = returnDueDate;
     }
 }

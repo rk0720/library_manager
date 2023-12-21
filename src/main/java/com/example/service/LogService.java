@@ -1,6 +1,6 @@
 package com.example.service;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,13 @@ public class LogService {
         this.logRepository = logRepository;
     }
     
-    public List<Log> findByLibraryId(Integer LibraryId) {
-    	return this.logRepository.findByLibraryId(LibraryId);
+    public Log findById(Integer id) {
+    	Optional<Log> optionalLogs = this.logRepository.findById(id);
+        Log logs = optionalLogs.get();
+    	return logs;
+    }
+    
+    public Log save(Log log) {
+    	return logRepository.save(log);
     }
 }
