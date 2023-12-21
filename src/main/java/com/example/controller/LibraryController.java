@@ -1,6 +1,8 @@
 package com.example.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class LibraryController {
     @GetMapping("borrow")
     public String borrowingForm(@RequestParam("id") Integer id, Model model) {
     	Library library = this.libraryService.findById(id);
-    	model.addAttribute("librarys", library);
+    	model.addAttribute("library", library);
     	model.addAttribute("log", new Log());
     	return "library/borrowingForm";
     }
@@ -58,10 +60,11 @@ public class LibraryController {
     	log.setUserId(loginUser.getUserId());
     	
     	LocalDateTime rentDate = LocalDateTime.now();
-    	log.setRentDate(rentDate.toString());
+    	log.setRentDate(rentDate);
     	
-    	LocalDateTime parsedReturnDueDate = LocalDateTime.parse(returnDueDate + "T00:00:00");
-    	log.setReturnDueDate(parsedReturnDueDate.toString());
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    	LocalDate parsedReturnDueDate = LocalDate.parse(returnDueDate, formatter);
+    	log.setReturnDueDate(parsedReturnDueDate);
     	
     	log.setReturnDate(null);
     	

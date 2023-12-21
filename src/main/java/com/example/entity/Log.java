@@ -1,5 +1,8 @@
 package com.example.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,10 +28,10 @@ public class Log {
     private Integer userId;
 
     @Column(name = "RENT_DATE")
-    private String rentDate;
+    private LocalDateTime rentDate;
     
     @Column(name = "RETURN_DATE")
-    private String returnDate;
+    private LocalDateTime returnDate;
     
     @Column(name = "RETURN_DUE_DATE")
     private String returnDueDate;
@@ -57,19 +60,19 @@ public class Log {
         this.userId = userId;
     }
 
-    public String getRentDate() {
+    public LocalDateTime getRentDate() {
         return this.rentDate;
     }
 
-    public void setRentDate(String rentDate) {
+    public void setRentDate(LocalDateTime rentDate) {
         this.rentDate = rentDate;
     }
     
-    public String getReturnDate() {
+    public LocalDateTime getReturnDate() {
     	return this.returnDate;
     }
     
-    public void setReturnDate(String returnDate) {
+    public void setReturnDate(LocalDateTime returnDate) {
     	this.returnDate = returnDate;
     }
     
@@ -77,7 +80,7 @@ public class Log {
     	return this.returnDueDate;
     }
     
-    public void setReturnDueDate(String returnDueDate) {
-        this.returnDueDate = returnDueDate;
+    public void setReturnDueDate(LocalDate returnDueDate) {
+        this.returnDueDate = returnDueDate.toString();
     }
 }
