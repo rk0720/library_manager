@@ -74,4 +74,19 @@ public class LibraryController {
     	
     	return "redirect:/library";
     }
+    
+    @PostMapping("return")
+    public String returnForm(@RequestParam("id") Integer id) {
+    	Library library = this.libraryService.findById(id);
+    	
+    	library.setUserId(0);
+    	Log log = this.logService.findByLibraryId(id);
+    	
+    	log.setReturnDate(LocalDateTime.now());
+    	
+    	logService.save(log);
+    	libraryService.save(library);
+    	
+    	return "redirect:/library"; 
+    }
 }

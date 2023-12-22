@@ -24,6 +24,10 @@ public class LogService {
     	return logs;
     }
     
+    public Log findByLibraryId(Integer libraryId) {
+    	return logRepository.findByLibraryId(libraryId);
+    }
+    
     public Log save(Log log) {
     	return logRepository.save(log);
     }

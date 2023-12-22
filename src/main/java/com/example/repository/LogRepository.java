@@ -8,4 +8,5 @@ import com.example.entity.Log;
 @Repository
 public interface LogRepository extends JpaRepository<Log, Integer>{
     // 以降の設問で必要に応じて機能を実装すること
+	public Log findByLibraryId(Integer libraryId);
 }
