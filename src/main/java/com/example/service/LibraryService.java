@@ -29,6 +29,11 @@ public class LibraryService {
 		return librarys;
 	}
     
+    public List<Library> findByUserId(Integer id) {
+    	List<Library> librarys = this.libraryRepository.findByUserId(id);
+    	return librarys;
+    }
+    
     public Library save(Library library) {
     	return libraryRepository.save(library);
     }

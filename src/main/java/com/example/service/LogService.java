@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class LogService {
     
     public Log findByLibraryIdAndUserId(Integer libraryId, Integer userId) {
     	return logRepository.findTopByLibraryIdAndUserIdOrderByRentDateDesc(libraryId, userId);
+    }
+    
+    public List<Log> findByUserId(Integer userId) {
+    	return logRepository.findByUserId(userId);
     }
     
     public Log save(Log log) {

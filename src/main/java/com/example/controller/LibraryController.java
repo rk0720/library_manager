@@ -88,4 +88,11 @@ public class LibraryController {
     	
     	return "redirect:/library"; 
     }
+    
+    @GetMapping("history")
+    public String history(Model model, @AuthenticationPrincipal LoginUser loginUser) {
+    	List<Log> logs = this.logService.findByUserId(loginUser.getUser().getId());
+    	model.addAttribute("logs", logs);
+    	return "library/borrowHistory";
+    }
 }
