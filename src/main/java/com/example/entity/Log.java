@@ -34,7 +34,7 @@ public class Log {
     private LocalDateTime returnDate;
     
     @Column(name = "RETURN_DUE_DATE")
-    private String returnDueDate;
+    private LocalDate returnDueDate;
 
     public Integer getId() {
         return this.id;
@@ -76,11 +76,11 @@ public class Log {
     	this.returnDate = returnDate;
     }
     
-    public String getReturnDueDate() {
+    public LocalDate getReturnDueDate() {
     	return this.returnDueDate;
     }
     
     public void setReturnDueDate(LocalDate returnDueDate) {
-        this.returnDueDate = returnDueDate.toString();
+        this.returnDueDate = returnDueDate;
     }
 }

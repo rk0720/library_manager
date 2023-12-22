@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//ログアウト
 		http.logout()
 			.logoutUrl("/logout")
-			.logoutSuccessUrl("/loginForm");
+			.logoutSuccessUrl("/library");
 	}
 	
     @Bean

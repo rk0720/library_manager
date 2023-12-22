@@ -28,5 +28,9 @@ public class LibraryService {
         Library librarys = optionalLibrarys.get();
 		return librarys;
 	}
+    
+    public Library save(Library library) {
+    	return libraryRepository.save(library);
+    }
 
 }

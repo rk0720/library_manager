@@ -22,12 +22,12 @@
                             <h4 class="title">Borrow book data</h4>
                         </div>
                         <div class="content">
-                            <form th:action="@{/library/borrow}" method="post" th:object="${log}">
+                            <form th:action="@{/library/borrow}" method="post">
                                 <div class="book-title" th:text="${library.name}"></div>
                                 <hr>
                                 <div class="form-group">
                                     <label>return date</label>
-                                    <input class="form-control border-input" th:field="*{returnDueDate}" name="return_due_date" type="date" placeholder="date">
+                                    <input class="form-control border-input" name="return_due_date" type="date" placeholder="date">
                                 </div>
                                 <div class="text-center">
 									<input name="id" th:value="${library.id}" type="hidden">

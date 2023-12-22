@@ -46,7 +46,6 @@ public class LibraryController {
     public String borrowingForm(@RequestParam("id") Integer id, Model model) {
     	Library library = this.libraryService.findById(id);
     	model.addAttribute("library", library);
-    	model.addAttribute("log", new Log());
     	return "library/borrowingForm";
     }
     
@@ -55,9 +54,11 @@ public class LibraryController {
     	// 変数 library を定義し、リクエストパラメータで渡された書籍IDに該当する書籍情報を1件取得し代入する
     	Library library = this.libraryService.findById(id);
     	// 取得した書籍情報の USER_ID を現在ログインしているユーザーのIDで上書きし LIBRARIES テーブルの情報を更新する
+    	library.setUserId(loginUser.getUserId());
+    	
     	Log log = new Log();
     	log.setLibraryId(library.getId());
-    	log.setUserId(loginUser.getUserId());
+    	log.setUserId(library.getUserId());
     	
     	LocalDateTime rentDate = LocalDateTime.now();
     	log.setRentDate(rentDate);
@@ -69,6 +70,7 @@ public class LibraryController {
     	log.setReturnDate(null);
     	
     	logService.save(log);
+    	libraryService.save(library);
     	
     	return "redirect:/library";
     }
