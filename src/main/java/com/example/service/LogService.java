@@ -25,7 +25,7 @@ public class LogService {
     }
     
     public Log findByLibraryIdAndUserId(Integer libraryId, Integer userId) {
-    	return logRepository.findByLibraryIdAndUserId(libraryId, userId);
+    	return logRepository.findTopByLibraryIdAndUserIdOrderByRentDateDesc(libraryId, userId);
     }
     
     public Log save(Log log) {
