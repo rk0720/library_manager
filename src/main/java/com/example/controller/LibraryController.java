@@ -76,16 +76,15 @@ public class LibraryController {
     }
     
     @PostMapping("return")
-    public String returnForm(@RequestParam("id") Integer id) {
+    public String returnBook(@RequestParam("id") Integer id, @AuthenticationPrincipal LoginUser loginUser) {
     	Library library = this.libraryService.findById(id);
-    	
     	library.setUserId(0);
-    	Log log = this.logService.findByLibraryId(id);
+    	libraryService.save(library);
     	
+    	Log log = this.logService.findByLibraryIdAndUserId(id, loginUser.getUserId());
     	log.setReturnDate(LocalDateTime.now());
     	
     	logService.save(log);
-    	libraryService.save(library);
     	
     	return "redirect:/library"; 
     }

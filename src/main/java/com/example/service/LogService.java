@@ -24,8 +24,8 @@ public class LogService {
     	return logs;
     }
     
-    public Log findByLibraryId(Integer libraryId) {
-    	return logRepository.findByLibraryId(libraryId);
+    public Log findByLibraryIdAndUserId(Integer libraryId, Integer userId) {
+    	return logRepository.findByLibraryIdAndUserId(libraryId, userId);
     }
     
     public Log save(Log log) {
