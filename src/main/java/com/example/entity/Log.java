@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -35,6 +37,14 @@ public class Log {
     
     @Column(name = "RETURN_DUE_DATE")
     private LocalDate returnDueDate;
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private Library library;
+    
+    public Library getLibrary() {
+    	return this.library;
+    }
 
     public Integer getId() {
         return this.id;
