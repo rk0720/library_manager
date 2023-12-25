@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -64,7 +63,7 @@ public class LibraryController {
     	log.setRentDate(rentDate);
     	
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    	LocalDate parsedReturnDueDate = LocalDate.parse(returnDueDate, formatter);
+    	LocalDateTime parsedReturnDueDate = LocalDateTime.parse(returnDueDate, formatter);
     	log.setReturnDueDate(parsedReturnDueDate);
     	
     	log.setReturnDate(null);

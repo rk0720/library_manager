@@ -32,7 +32,7 @@ public class Library {
     @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Log> logs;
     
-    public List<Log> getLibrary(){
+    public List<Log> getLibraries(){
     	return this.logs;
     }
 

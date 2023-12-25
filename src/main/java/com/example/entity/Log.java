@@ -1,6 +1,5 @@
 package com.example.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -36,7 +35,7 @@ public class Log {
     private LocalDateTime returnDate;
     
     @Column(name = "RETURN_DUE_DATE")
-    private LocalDate returnDueDate;
+    private LocalDateTime returnDueDate;
     
     @ManyToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
@@ -86,11 +85,11 @@ public class Log {
     	this.returnDate = returnDate;
     }
     
-    public LocalDate getReturnDueDate() {
+    public LocalDateTime getReturnDueDate() {
     	return this.returnDueDate;
     }
     
-    public void setReturnDueDate(LocalDate returnDueDate) {
+    public void setReturnDueDate(LocalDateTime returnDueDate) {
         this.returnDueDate = returnDueDate;
     }
 }
